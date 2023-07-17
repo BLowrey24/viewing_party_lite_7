@@ -1,4 +1,9 @@
-<%= button_to "Create a New User", "/register", method: :get %>
+<% if current_user %>
+  <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
+<% else %>
+  <%= button_to "Register", "/register", {method: "get"}  %>
+  <%= button_to "Login", "/login", {method: "get"}  %>
+<% end %>
 <br>
 
 <div id="existing-users">

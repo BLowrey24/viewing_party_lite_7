@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "user's discover page", type: :feature do
   before(:each) do
-    @user1 = User.create!(name: "John", email: "john@example.com")
-    @user2 = User.create!(name: "Myles", email: "myles@example.com")
-    @user3 = User.create!(name: "Boston", email: "boston@example.com")
+    @user1 = User.create!(name: "John", email: "john@example.com", password: "password")
+    @user2 = User.create!(name: "Myles", email: "myles@example.com", password: "password12")
+    @user3 = User.create!(name: "Boston", email: "boston@example.com", password: "password34")
 
     # This stubs out the API call to the top rated movies endpoint
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['MOVIE_API_KEY']}")
