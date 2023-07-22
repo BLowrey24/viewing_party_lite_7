@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
+      session[:user_id] = user.id
       redirect_to user_path(user)
     else
       redirect_to "/register"
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
   def login_user
     user = User.find_by(email: params[:email])
     if user.authenticate(params[:password])
-      session[:user] = user.id
+      session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.name}!"
       redirect_to user_path(user)
     else

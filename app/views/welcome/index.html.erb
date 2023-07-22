@@ -1,14 +1,14 @@
 <% if current_user %>
-  <%= button_to "Log Out", session_path(current_user.id), method: :delete %>
-<% else %>
-  <%= button_to "Register", "/register", {method: "get"}  %>
-  <%= button_to "Login", "/login", {method: "get"}  %>
-<% end %>
-<br>
+  <%= button_to "Logout", session_path(current_user.id), method: :delete %>
 
-<div id="existing-users">
-  <h3> Existing Users </h3>
-  <% @users.each do |user| %>
-    <li><%= link_to "#{user.email}", user_path(user.id) %></li>
-  <% end %>
-</div>
+  <h2>Current Users</h2>
+<% @users.each do |user| %>
+<ul>
+  <li id="user_<%= user.id %>"><%= user.email %></li>
+</ul>
+<% end %>
+
+<% else %>
+  <%= button_to "Register", "/register", method: :get %>
+  <%= button_to "Login", "/login", method: :get %>
+<% end %>

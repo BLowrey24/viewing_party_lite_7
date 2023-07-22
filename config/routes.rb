@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       resources :viewing_parties, only: [:new, :create]
     end
   end
+  resources :sessions, only: [:destroy]
 end

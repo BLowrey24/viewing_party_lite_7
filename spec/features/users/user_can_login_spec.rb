@@ -5,7 +5,7 @@ RSpec.describe "Logging In" do
     it "can log in with valid credentials" do
       user = User.create!(name: 'Boston', email: 'boss@example.com', password: '12password34')
 
-      visit "/"
+      visit root_path
 
       click_button "Login"
       expect(current_path).to eq("/login")
