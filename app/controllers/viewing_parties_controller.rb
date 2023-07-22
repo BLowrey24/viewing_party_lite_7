@@ -8,7 +8,7 @@ class ViewingPartiesController < ApplicationController
     viewing_party = ViewingParty.create(viewing_party_params)
     viewing_party.users = User.where(id: params[:viewing_party][:user_ids])
     UserViewingParty.create(user_id: user.id, viewing_party_id: viewing_party.id, host: true)
-    redirect_to user_path(user)
+    redirect_to "/dashboard"
   end
 
   private

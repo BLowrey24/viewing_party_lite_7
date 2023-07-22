@@ -27,7 +27,7 @@ RSpec.describe "As a User who is logged in I can logout" do
       fill_in "Password Confirmation", with: "password"
       click_button "Create New User"
       click_link("Home")
-      
+
       click_button("Logout")
       expect(current_path).to eq(root_path)
       expect(page).to have_button("Login")

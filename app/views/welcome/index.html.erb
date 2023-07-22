@@ -10,5 +10,5 @@
 
 <% else %>
   <%= button_to "Register", "/register", method: :get %>
-  <%= button_to "Login", "/login", method: :get %>
+  <%= button_to "Login", new_session_path, method: :get %>
 <% end %>
